@@ -77,6 +77,7 @@ public class ControladorPersonaje : MonoBehaviour
             {
                 //no esta corriendo
                 corriendo = true;
+                NotificationCenter.DefaultCenter().PostNotification(this, "PersonajeEmpiezaACorrer");
             }
         }
     }

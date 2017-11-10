@@ -8,9 +8,15 @@ public class Generador : MonoBehaviour {
     public float tiempoMax = 2.5f;
 	// Use this for initialization
 	void Start () {
-        Generar();
+        //Generar();
+        NotificationCenter.DefaultCenter().AddObserver(this, "PersonajeEmpiezaACorrer");
 	}
 	
+    void PersonajeEmpiezaACorrer(Notification notificacion)
+    {
+        Generar();
+    }
+
 	// Update is called once per frame
 	void Update () {
 		
