@@ -30,6 +30,7 @@ public class ControladorPersonaje : MonoBehaviour
     /**
      * A cada actualizacion de fisicas
      * comprueba si el personaje esta tocando suelo y si eso ocurre pone doble salto a 0
+     * Si corriendo es true añade la velocidad x
      * */
     void FixedUpdate()
     {
@@ -50,6 +51,7 @@ public class ControladorPersonaje : MonoBehaviour
     /**
      * Una vez por fotograma
      * si se hace click o toca la pantalla
+     * si no esta corriendo pone corriendo a true
      * si esta en el suelo o no ha saltado dos veces salta
      * si no esta en el suelo y salta el dobleSalto se pone a true 
      * para que no lo vuelva a hacer hasta que toque suelo
@@ -57,17 +59,16 @@ public class ControladorPersonaje : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
-        {
+        {	//si se hace click o toca la pantalla
             if (corriendo)
-            {
-                //si esta corriendo
+            {	//si corriendo es true
+                
                 if (enSuelo || !dobleSalto)
-                {
+                {	//si esta en el suelo o no ha saltado dos veces
+					//salta
                     GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, fuerzaSalto);
-                    //GetComponent<Rigidbody2D>().AddForce(new Vector2(0, fuerzaSalto));
-                    //rigidbody2D.AddForze(new Vector2(0, fuerzaSalto));
                     if (!dobleSalto && !enSuelo)
-                    {
+                    {	//si no ha saltado dos veces y no esta en el suelo dobleSalto true
                         dobleSalto = true;
                     }
 
