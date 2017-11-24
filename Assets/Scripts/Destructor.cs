@@ -15,6 +15,12 @@ public class Destructor : MonoBehaviour {
 	}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
+		if (collision.tag == "Player") {
+			Debug.Break();
+			//gameOver
+		} else {
+			Destroy(collision.gameObject);
+		}
+        
     }
 }
