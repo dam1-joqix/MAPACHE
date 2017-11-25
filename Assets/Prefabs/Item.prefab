@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212130431586615482}
   - component: {fileID: 58605611165833732}
   - component: {fileID: 95963708915594212}
+  - component: {fileID: 114206640891521830}
   m_Layer: 0
   m_Name: Item
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1034785259871310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8132143, y: -2.1269455, z: 0}
+  m_LocalPosition: {x: 2.5232687, y: -2.3397017, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,7 +52,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.020205796, y: -0.25529122}
@@ -74,6 +75,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114206640891521830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1034785259871310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50090f38c376254095b6a8d05fece89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puntosAIncrementar: 5
 --- !u!212 &212130431586615482
 SpriteRenderer:
   m_ObjectHideFlags: 1

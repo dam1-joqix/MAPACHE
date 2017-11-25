@@ -15,9 +15,8 @@ public class SumarPuntosBloque : MonoBehaviour {
 		
 	}
 	void OnCollisionEnter2D(Collision2D colision){
-		if ((haColisionadoConElJugador == false) && (colision.gameObject.tag == "Player")) {
+		if ((haColisionadoConElJugador == false) && (colision.gameObject.tag == "Player") && (colision.contacts[0].collider.gameObject.name!="Cabeza") && (colision.contacts[0].collider.gameObject.name != "Cuerpo")) {
 			haColisionadoConElJugador = true;
-			Debug.Log ("Colision detectada");
 			NotificationCenter.DefaultCenter ().PostNotification (this, "IncrementarPuntos", puntosAIncrementar);
 		}
 	}
