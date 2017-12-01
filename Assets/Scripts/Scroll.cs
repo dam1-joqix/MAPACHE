@@ -10,6 +10,7 @@ public class Scroll : MonoBehaviour
 	public float velocidad = 0f;
 	float tiempoInicio = 0f;
 	bool corriendo = false;
+	public bool comenzarMovimiento = false;
 	// Use this for initialization
 	/**
 	 * Al iniciar se suscribe a las notificaciones PersonajeEmpiezaACorrer y PersonajeMuere
@@ -42,12 +43,12 @@ public class Scroll : MonoBehaviour
 	// Update is called once per frame
 	/**
 	 * Una vez por fotograma
-	 * Si el personaje esta corriendo se actualiza el offset en x de un componente Renderer
+	 * Si el personaje esta corriendo o comenzarMovimiento es true, se actualiza el offset en x de un componente Renderer
 	 * el offset se desplaza el modulo de 1 de el tiempo actual menos el inicial multiplicado por la velocidad
 	 **/
 	void Update ()
 	{
-		if (corriendo) {
+		if (corriendo || comenzarMovimiento) {
 			GetComponent<Renderer> ().material.mainTextureOffset = new Vector2 (((Time.time - tiempoInicio) * velocidad) % 1, 0);
 		}
 	}
