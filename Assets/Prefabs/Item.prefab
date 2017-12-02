@@ -87,6 +87,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puntosAIncrementar: 5
+  sonidoItem: {fileID: 8300000, guid: d086a7366175b054285dd198ea38c480, type: 3}
+  volumenSonidoItem: 1
 --- !u!212 &212130431586615482
 SpriteRenderer:
   m_ObjectHideFlags: 1

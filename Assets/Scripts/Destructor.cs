@@ -33,6 +33,7 @@ public class Destructor : MonoBehaviour
 	{
 		if (collision.tag == "Player") {
 			NotificationCenter.DefaultCenter ().PostNotification (this, "PersonajeMuere");
+			GetComponent<AudioSource> ().Play ();
 			personaje.SetActive (false);
 			//gameOver
 		} else {

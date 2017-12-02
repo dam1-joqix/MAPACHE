@@ -8,7 +8,9 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
 	public int puntosAIncrementar = 5;
+	public AudioClip sonidoItem;
 	bool incrementados = false;
+	public float volumenSonidoItem=1f;
 
 	void Start ()
 	{
@@ -30,6 +32,7 @@ public class Item : MonoBehaviour
 	void OnTriggerEnter2D (Collider2D colider)
 	{
 		if (colider.gameObject.tag == "Player" && !incrementados) {
+			AudioSource.PlayClipAtPoint (sonidoItem, Camera.main.transform.position, volumenSonidoItem);
 			incrementados = true;
 			NotificationCenter.DefaultCenter ().PostNotification (this, "IncrementarPuntos", puntosAIncrementar);
 		}

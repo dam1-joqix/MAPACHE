@@ -7,8 +7,9 @@ using UnityEngine;
  **/
 public class Puntuacion : MonoBehaviour
 {
-	private int puntuacion = 0;
+	public int puntuacion = 0;
 	public TextMesh marcador;
+
 	// Use this for initialization
 	/**
 	 * Al epezar actualiza el marcador (para ponerlo a 0)
@@ -16,9 +17,16 @@ public class Puntuacion : MonoBehaviour
 	 **/
 	void Start ()
 	{
-		ActualizarMarcador ();
 		NotificationCenter.DefaultCenter ().AddObserver (this, "IncrementarPuntos");
+		NotificationCenter.DefaultCenter ().AddObserver (this, "PersonajeMuere");
+		ActualizarMarcador ();
         
+	}
+	void PersonajeMuere(Notification notificacion){
+		if (puntuacion > EstadoJuego.estadoJuego.puntucionMaxima) {
+			EstadoJuego.estadoJuego.puntucionMaxima = puntuacion;
+			EstadoJuego.estadoJuego.Guardar ();
+		} 
 	}
 	
 	// Update is called once per frame

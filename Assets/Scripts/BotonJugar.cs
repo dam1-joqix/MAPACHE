@@ -19,6 +19,12 @@ public class BotonJugar : MonoBehaviour {
 	 * Al pulsar se carga GameScene
 	 **/
 	void OnMouseDown(){
+		Camera.main.GetComponent<AudioSource> ().Stop ();
+		GetComponent<AudioSource> ().Play ();
+		Invoke ("CambiarDeEscena", GetComponent<AudioSource> ().clip.length);
+
+	}
+	void CambiarDeEscena(){
 		Application.LoadLevel ("GameScene");
 	}
 }
